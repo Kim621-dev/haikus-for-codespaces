@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Full Project</title>
+  <style>
+    body {
+      background: linear-gradient(to right, yellow, black);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      padding: 20px;
+    }
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .slide {
+      width: 100%;
+      animation: slide 10s infinite;
+    }
+    @keyframes slide {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-100%); }
+    }
+    .popup {
+      display: none;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #fff;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    input, label {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome Brian Nduku Kimanzi</h1>
+  
+  <!-- Slider -->
+  <div class="slider">
+    <img class="slide" src="https://via.placeholder.com/800x300" alt="Slide Image" />
+  </div>
+
+  <!-- Pop-up -->
+  <div id="popup" class="popup">This is a popup message!</div>
+  <button onclick="showPopup()">Show Popup</button>
+
+  <!-- Form with validation -->
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Popup function
+    function showPopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "block";
+      setTimeout(() => popup.style.display = "none", 3000);
+    }
+
+    // Form Validation
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      if (!name || !email) {
+        alert("Please fill in all fields.");
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
